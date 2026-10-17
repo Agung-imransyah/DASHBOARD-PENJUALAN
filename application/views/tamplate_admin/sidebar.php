@@ -1,0 +1,106 @@
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon ">
+                    <i class="fas fa-coffee"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3" style="white-space: nowrap;">ADMIN</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="<?php echo base_url('admin/dashboard_admin'); ?>">
+                    <i class="fas fa-fw fa-home"></i>
+                    <span>Home</span></a>
+            </li>
+
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('admin/data_barang'); ?>">
+                    <i class="fas fa-fw fa-database"></i>
+                    <span>Data Barang</span></a>
+            </li>
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('admin/invoice'); ?>">
+                    <i class="fas fa-fw fa-file-invoice"></i>
+                    <span>Invoice</span></a>
+            </li>
+            
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+
+                            </div>
+                        </li>
+
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                    <li class="nav-item d-flex align-items-center">
+                        
+                        <?php if($this->session->userdata('username')) { ?>
+                            
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                Selamat Datang, <b><?php echo $this->session->userdata('username') ?></b>
+                            </span>
+                            
+                            <?php echo anchor('auth/logout', '<i class="fas fa-sign-out-alt fa-sm fa-fw"></i> Logout', ['class' => 'btn btn-sm btn-danger ml-2']) ?>
+                        
+                        <?php } else { ?>
+                            
+                            <?php echo anchor('auth/login', 'Login', ['class' => 'btn btn-sm btn-primary']); ?>
+                        
+                        <?php } ?>
+                    </li>
+                </ul> 
+                </nav>
+                <!-- End of Topbar -->
